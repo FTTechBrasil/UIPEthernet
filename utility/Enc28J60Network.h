@@ -82,6 +82,8 @@
       #else
         #define ENC28J60_CONTROL_CS     SS
       #endif
+   #elif defined(__SAMD51__)
+	  #define ENC28J60_CONTROL_CS SS2
    #elif defined(ARDUINO_ARCH_AMEBA) //Defined SS to pin 10
       #define ENC28J60_CONTROL_CS     SS //PC_0 A5 10
    #elif defined(ARDUINO_ARCH_SAM)
