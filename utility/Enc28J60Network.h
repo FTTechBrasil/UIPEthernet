@@ -121,7 +121,9 @@
 extern uint8_t ENC28J60ControlCS;
 
 #if !defined(SPI_MOSI)
-   #if defined(__AVR__) || defined(ESP8266) || defined(__RFduino__)
+   #if defined(__SAMD51__)
+      #define SPI_MOSI PIN_SPI_MOSI
+   #elif defined(__AVR__) || defined(ESP8266) || defined(__RFduino__)
       #define SPI_MOSI MOSI
    #elif defined(ARDUINO_ARCH_AMEBA)
       #define SPI_MOSI 11 //PC_2
@@ -150,7 +152,9 @@ extern uint8_t ENC28J60ControlCS;
 #endif
 
 #if !defined(SPI_MISO)
-   #if defined(__AVR__) || defined(ESP8266) || defined(__RFduino__)
+   #if defined(__SAMD51__)
+      #define SPI_MISO PIN_SPI_MISO
+   #elif defined(__AVR__) || defined(ESP8266) || defined(__RFduino__)
       #define SPI_MISO MISO
    #elif defined(ARDUINO_ARCH_AMEBA)
       #define SPI_MISO 12 //PC_3
@@ -178,7 +182,9 @@ extern uint8_t ENC28J60ControlCS;
    #error "Not defined SPI_MISO!"
 #endif
 #if !defined(SPI_SCK)
-   #if defined(__AVR__) || defined(ESP8266) || defined(__RFduino__)
+   #if defined(__SAMD51__)
+      #define SPI_SCK PIN_SPI_SCK
+   #elif defined(__AVR__) || defined(ESP8266) || defined(__RFduino__)
       #define SPI_SCK SCK
    #elif defined(ARDUINO_ARCH_AMEBA)
       #define SPI_SCK 13 //PC_1 A4
